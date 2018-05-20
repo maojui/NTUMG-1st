@@ -10,4 +10,4 @@ def hello(request):
 
 app = Application()
 app.router.add_route('/', hello)
-app.run(port=8080,debug=False)
+app.run(port=80,debug=False)
