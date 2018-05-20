@@ -1,1 +1,1 @@
-web: gunicorn firstpack.app_run
+web: gunicorn app:app 
