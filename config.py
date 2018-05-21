@@ -88,7 +88,7 @@ picturelist = [
 		"author":"cosMo＠暴走P ",
         "level":"19","judge":"楽園",
         "effector":"Dr. ΖΑΩ",
-        "comment":"「でも、それはほんとうに'しあわせ'なのでしょうか？」",
+        "comment":"「でも、それは本当に'幸せ'なのか？」",
         "category":"heaven"
     },
     {
@@ -105,7 +105,7 @@ picturelist = [
 		"author":"gmtn",
         "level":"18","judge":"混乱",
         "effector":"SEXY FUMIYA in Abyss",
-        "comment":"「❤❤❤悪意に満ちている世界をうけとれ❤❤❤」",
+        "comment":"「❤悪意に満ちている世界をうけとれ❤」",
         "category":"final"
     },
     {
@@ -113,7 +113,8 @@ picturelist = [
         "name":"Berry Go!!",
 		"author":"Freezer feat. 妃苺 ",
         "level":"17","judge":"甘味",
-        "effector":"PERCIA","comment":"「それを食べると、甘すっぱく感じする苺ですよ。」",
+        "effector":"PERCIA",
+        "comment":"「それを食べると、甘すっぱく感じする苺ですよ。」",
         "category":"heaven"
     },
     {
@@ -121,7 +122,8 @@ picturelist = [
         "name":"花雪",
 		"author":"smileY inc.",
         "level":"16","judge":"花舞",
-        "effector":"関谷なる","comment":"「わたしと一緒に踊ってくれますか？」",
+        "effector":"関谷なる",
+        "comment":"「わたしと一緒に踊ってくれますか？」",
         "category":"heaven"
     },
     {
@@ -130,7 +132,7 @@ picturelist = [
 		"author":"DJ Myosuke",
         "level":"18","judge":"狂喜",
         "effector":"悪魔女王XxdbxX",
-        "comment":"「ウフフ...己の結末に、向かう準備はもうできたかしら~?」",
+        "comment":"「己の結末に、向かう準備はできた～？」",
         "category":"final"
     },
     {
@@ -138,7 +140,8 @@ picturelist = [
         "name":"アズールレーン「VS夕立」",
 		"author":"Jimmy'z",
         "level":"18","judge":"壞滅",
-        "effector":"ユニコーンのお兄ちゃん2号♪","comment":"「ソロモンの悪夢、見せてやるぜ。」",
+        "effector":"ユニコーンのお兄ちゃん2号♪",
+        "comment":"「ソロモンの悪夢、見せてやるぜ。」",
         "category":"final"
     }
 ]
