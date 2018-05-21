@@ -96,7 +96,8 @@ picturelist = [
         "name":"SadisticMusic∞Factory",
 		"author":"cosMo＠暴走P",
         "level":"19","judge":"絕望",
-        "effector":"からかい上手のモニカちゃん","comment":"「......絶対逃ガサナイカラ。」",
+        "effector":"からかい上手のモニカちゃん",
+        "comment":"「......絶対逃ガサナイカラ。」",
         "category":"final"
     },
     {
@@ -114,7 +115,7 @@ picturelist = [
 		"author":"Freezer feat. 妃苺 ",
         "level":"17","judge":"甘味",
         "effector":"PERCIA",
-        "comment":"「それを食べると、甘すっぱく感じする苺ですよ。」",
+        "comment":"「甘すっぱく感じする苺ですよ。」",
         "category":"heaven"
     },
     {

@@ -88,12 +88,6 @@
                 background-color: rgb(189, 13, 13);
                 border: red solid 3px;
             }
-            .small-word{
-                color:#ccc;
-                font-size: 1vw;
-                text-shadow: 1px 1px rgb(0, 0, 0);
-            }
-            
             .faith{
                 color:rgb(255, 141, 11);
             }
@@ -129,6 +123,29 @@
                 #welcome{
                     height:100px;
                 }
+                .small-word{
+                    font-size: 1vw;
+                    line-height: 0.8;
+                    text-shadow: 1px 1px rgb(0, 0, 0);
+                }
+                .big-word{
+                    line-height: 0.8;
+                    font-size: 1vw;
+                    text-shadow: 1px 1px rgb(0, 0, 0);
+                }
+                .up{
+                    margin-top:-8px
+                }
+            }
+            @media(min-width:600px){
+                .small-word{
+                    font-size: 1.4vw;
+                    text-shadow: 1px 1px rgb(0, 0, 0);
+                }
+                .big-word{
+                    font-size: 2.8vw;
+                    text-shadow: 1px 1px rgb(0, 0, 0);
+                }
             }
         </style>
 
@@ -137,23 +154,23 @@
             <div class="col-1 out" ></div>
             <div class="col-9" style="min-width: 400px;" >
                 <div class="row banner"  style="min-width:400px;">
-                        <h2 id="welcome" style="margin:auto;color:white;padding-top:5%;" >Welcome to NTUMG <br> <span style="margin:auto;font-size: 1.5vw;">1st k-shoot pack</span></h2>
+                        <h2 id="welcome" style="margin:auto;color:white;padding-top:8%;" >Welcome to NTUMG <br> <span style="margin:auto;font-size: 1.5vw;">1st k-shoot pack</span></h2>
                     <div class="row" id="banner" style="width:100%; display:none;" >
                         
                         <div class="col-4" >
-                            <img id="select_pic" src="static/images/1-1.jpg" width="80%" style="margin:10%;visibility:hidden;min-width: 91px;"  />
+                            <img id="select_pic" src="static/images/1-1.jpg" width="80%" style="margin:10%;visibility:hidden;min-width: 100px;"  />
                         </div>
                         
                         <div class="col-8" style="margin-left : -20px;margin-top:3%;" >
                             <h2 class="big-word" id="song_name" style="font-size: 2vw;text-shadow: 1px 1px rgb(0, 0, 0);"> </h2>
                             <h2 class="big-word" id="author" style="font-size: 2vw;text-shadow: 1px 1px rgb(0, 0, 0);"> </h2>
-                            <div style="display:inline-block">
-                                <h6 class="small-word" id="level" style="display:inline-block" ></h6>
+                            <div class="up" style="display:inline-block;">
+                                <h6 class="small-word" id="level" style="display:inline-block;color:#ccc;" ></h6>
                                 <h6 class="small-word" id="judge"  style="display:inline-block"></h6>
                                 <br>
-                                <h6 class="small-word" id="effector"  style="display:inline-block"></h6>
+                                <h6 class="small-word" id="effector"  style="display:inline-block;color:#ccc;"></h6>
                             </div>
-                            <h6 class="small-word" id="comment" ></h6>
+                            <h6 class="small-word" id="comment" style="" ></h6>
                         </div>
                     </div>
                 </div>
@@ -192,9 +209,11 @@
             $('#select_pic').attr("src","static/images/{{pic.file}}").attr("style","margin:10%;visibility:visible;");
             $('#song_name').removeClass();
             $('#song_name').text("{{pic.name}}");
+            $('#song_name').addClass("big-word")
             $('#song_name').addClass("{{pic.category}}")
             $('#author').removeClass();
             $('#author').text("{{pic.author}}");
+            $('#author').addClass("big-word")
             $('#author').addClass("{{pic.category}}")
             $('#level').text("LV:{{pic.level}}");
             $('#judge').removeClass();
