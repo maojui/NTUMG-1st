@@ -1,0 +1,170 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="viewport" content="initial-scale=1">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+        <title>NTUMG - 1st</title>
+    </head>
+
+    <body>
+        <style>
+            .bgimg{
+                background-image:url("static/images/bg.jpg");
+                background-color: #cccccc;
+                background-repeat: no-repeat;
+                background-size: 100%;
+                background-repeat: no-repeat;
+                background-position:center top;
+                align-content: center;
+            }
+            .banner{
+                background-image:url("static/images/banner.jpg");
+                background-color: #cccccc;
+                background-repeat: no-repeat;
+                background-position:center top;
+                background-size: 100%
+            }
+            .pic-left{
+                margin-top: 2.1%;
+                margin-left: 2.2%;
+                margin-right: 1%;
+                margin-bottom: 1.9%;
+                padding: 0.3%;
+            }
+            .pic{
+                margin-top: 2.1%;
+                margin-left: 2.3%;
+                margin-right: 1%;
+                margin-bottom: 1.9%;
+                padding: 0.3%;
+            }
+            .pic-right{
+                margin-top: 2.1%;
+                margin-left: 1.8%;
+
+                margin-right: 1%;
+                margin-bottom: 1.9%;
+                padding: 0.3%;
+            }
+            .btn:hover{
+                opacity: 0.8;
+            }
+            .btn:active{
+                opacity: 0.6;
+            }
+            .btn-primary {
+                color: #ffffff;
+                border-radius: 10%;
+                background-color: red;
+                border: red solid 3px;
+            }
+            
+            .btn-primary:focus{
+
+                background-color: rgb(189, 13, 13);
+                border: red solid 3px;
+            }
+            .btn-primary:hover{
+
+                background-color: rgb(189, 13, 13);
+                border: red solid 3px;
+            }
+            
+            .btn-primary:active {
+                color: #ffffff;
+                border-radius: 10%;
+                background-color: red;
+                border: red solid 3px;
+            }
+            .btn-primary:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle {
+                color: #ffffff;
+                border-radius: 10%;
+                background-color: rgb(189, 13, 13);
+                border: red solid 3px;
+            }
+            .small-word{
+                font-size: 1vw;
+            }
+            .faith{
+                color:red;
+            }
+            .hope{
+                color:green;
+            }
+        </style>
+    <div class="container" style="align-content: center;">
+        <div class="row"><div class="col-sm-2"></div>
+        <div class="col-sm-8">
+            <div class="row">
+                <div class="banner" style="min-width:300px; min-height:100px; width:100%; display: inline-block">
+                    <div class="row">
+                            
+                        <div class="col-sm-4">
+                            <img id="select_pic" src="static/images/1-1.jpg" width="80%" style="margin:10%" />
+                        </div>
+
+                        <div class="col-sm-8" style="margin-left : -20px;margin-top:3%;">
+                            <p style="font-size: 1vw">Next Track :</p>
+                            <h2 id="song_name" style="font-size: 2.5vw">XDDDDDDDD </h2>
+                            <div style="display:inline-block">
+                                <h6 class="small-word" id="level" style="display:inline-block;">LV:18</h6>
+                                <h6 class="small-word" id="judge" style="display:inline-block;">[強力]</h6>
+                                <h6 class="small-word" id="effector" style="display:inline-block;">EFFector</h6>
+                            </div>
+                            <h6 class="small-word" id="comment">comment</h6>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+            <div class="bgimg" width="100%" style="min-width:400px;">
+                
+                {% for pic in piclist %}
+                    {% if (loop.index)%4 == 1%}
+                        <img class="btn pic-left {{pic.category}}" id={{loop.index}} src="static/images/{{pic.file}}" alt="{{pic.name}}" width="21%" onclick="selectOnlyThis(this.id)"/>
+                    {% elif (loop.index)%4 == 0%}
+                        <img class="btn pic-right {{pic.category}}" id={{loop.index}} src="static/images/{{pic.file}}" alt="{{pic.name}}" width="21%" onclick="selectOnlyThis(this.id)"/>
+                    {% else %}
+                        <img class="btn pic {{pic.category}}" id={{loop.index}} src="static/images/{{pic.file}}" alt="{{pic.name}}" width="21%" onclick="selectOnlyThis(this.id)"/>
+                    {% endif %}
+                {% endfor %}
+
+            </div>
+            </div>
+        
+        </div>
+        </div>
+    </div>
+
+    <script>
+    function selectOnlyThis(id){
+        var btns = document.getElementsByClassName("btn");
+        Array.prototype.forEach.call(btns,function(btn){
+          btn.classList.remove("btn-primary");
+        });
+        console.log(id);
+        $('#'+id).addClass("btn-primary");
+        // {% for pic in piclist %}
+        if(id == {{loop.index}}){
+
+            $('#select_pic').attr("src","static/images/{{pic.file}}");
+            $('#song_name').removeClass();
+            $('#song_name').text("{{pic.name}}");
+            $('#song_name').addClass("{{pic.category}}");
+            $('#level').text("LV:{{pic.level}}");
+            $('#judge').text("[{{pic.judge}}]");
+            $('#effector').text(" Effector : {{pic.effector}}");
+            $('#comment').text("{{pic.comment}}");
+        };
+        // {% endfor %}
+      }
+    </script>
+    
+    </body>
+</html>
