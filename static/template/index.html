@@ -10,10 +10,10 @@
         <title>NTUMG - 1st</title>
     </head>
 
-    <body >
+    <body style="background-color: white">
         <style>
             .bgimg{
-                background-image:url("static/images/bg.jpg");
+                background-image:url("static/images/bg2.jpg");
                 background-color: #cccccc;
                 background-repeat: no-repeat;
                 background-size: 100%;
@@ -31,7 +31,7 @@
             }
             .pic-left{
                 margin-top: 2.1%;
-                margin-left: 2.2%;
+                margin-left: 0%;
                 margin-right: 1%;
                 margin-bottom: 1.9%;
                 padding: 0.3%;
@@ -45,11 +45,13 @@
             }
             .pic-right{
                 margin-top: 2.1%;
-                margin-left: 1.8%;
-
-                margin-right: 1%;
+                margin-left: 2.2%;
                 margin-bottom: 1.9%;
                 padding: 0.3%;
+            }
+            img{
+                border-radius: 1%;
+
             }
             .btn:hover{
                 opacity: 0.8;
@@ -74,7 +76,6 @@
                 background-color: rgb(189, 13, 13);
                 border: red solid 3px;
             }
-            
             .btn-primary:active {
                 color: #ffffff;
                 border-radius: 10%;
@@ -88,43 +89,71 @@
                 border: red solid 3px;
             }
             .small-word{
+                color:#ccc;
                 font-size: 1vw;
+                text-shadow: 1px 1px rgb(0, 0, 0);
             }
+            
             .faith{
-                color:red;
+                color:rgb(255, 141, 11);
             }
             .hope{
-                color:green;
+                color:rgb(63, 236, 63);
+            }
+            .heaven{
+                color:rgb(255, 66, 91);
+            }
+            .final{
+                color:rgb(204, 93, 255);
+            }
+            .faith_bottom{
+                color:rgb(218, 119, 7);
+            }
+            .hope_bottom{
+               
+                color:rgb(20, 218, 20);
+            }
+            .heaven_bottom{
+                color:rgb(126, 5, 21);
+            }
+            .final_bottom{
+                color:rgb(130, 7, 187);
+            }
+            #welcome{
+                height:200px;
             }
             @media(max-width:600px){
                 .out{
                     display:none;
+                }
+                #welcome{
+                    height:100px;
                 }
             }
         </style>
 
     <div class="container" style="align-content:center;margin: auto;">
         <div class="row" style="align-content:center;">
-            <div class="col-2 out" ></div>
-            <div class="col-8" >
+            <div class="col-1 out" ></div>
+            <div class="col-9" style="min-width: 400px;" >
                 <div class="row banner"  style="min-width:400px;">
-                    <div class="row" style="align-items: center;" >
+                        <h2 id="welcome" style="margin:auto;color:white;padding-top:5%;" >Welcome to NTUMG <br> <span style="margin:auto;font-size: 1.5vw;">1st k-shoot pack</span></h2>
+                    <div class="row" id="banner" style="width:100%; display:none;" >
                         
                         <div class="col-4" >
-                            <img id="select_pic" src="static/images/1-1.jpg" width="80%" style="margin:10%;visibility:hidden;"  />
+                            <img id="select_pic" src="static/images/1-1.jpg" width="80%" style="margin:10%;visibility:hidden;min-width: 91px;"  />
                         </div>
                         
                         <div class="col-8" style="margin-left : -20px;margin-top:3%;" >
-                            <p id="next_track" style="font-size: 1vw;visibility:hidden;">Next Track :</p>
-                            <h2 id="song_name" style="font-size: 2.5vw"> </h2>
+                            <h2 class="big-word" id="song_name" style="font-size: 3vw;text-shadow: 1px 1px rgb(0, 0, 0);"> </h2>
+                            <h2 class="big-word" id="author" style="font-size: 3vw;text-shadow: 1px 1px rgb(0, 0, 0);"> </h2>
                             <div style="display:inline-block">
-                                <h6 class="small-word" id="level" style="display:inline-block;"></h6>
-                                <h6 class="small-word" id="judge" style="display:inline-block;"></h6>
-                                <h6 class="small-word" id="effector" style="display:inline-block;"></h6>
+                                <h6 class="small-word" id="level" style="display:inline-block" ></h6>
+                                <h6 class="small-word" id="judge"  style="display:inline-block"></h6>
+                                <h6 class="small-word" id="effector"  style="display:inline-block"></h6>
                             </div>
-                            <h6 class="small-word" id="comment"></h6>
+                            <h6 class="small-word" id="comment" ></h6>
                         </div>
-                        
                     </div>
                 </div>
                 <div class="row" align="center" width="110%" >
@@ -141,13 +170,15 @@
                     </div>
                 </div>
             </div>
-            <div class="col-2 out" ></div>
+            <div class="col-1 out" ></div>
         </div>
     </div>
 
 
 <script>
     function selectOnlyThis(id){
+        $('#welcome').attr('style','display:none');
+        $('#banner').attr('style','display:flex;width:100%;');
         var btns = document.getElementsByClassName("btn");
         Array.prototype.forEach.call(btns,function(btn){
           btn.classList.remove("btn-primary");
@@ -161,10 +192,19 @@
             $('#song_name').removeClass();
             $('#song_name').text("{{pic.name}}");
             $('#song_name').addClass("{{pic.category}}")
+            $('#author').removeClass();
+            $('#author').text("{{pic.author}}");
+            $('#author').addClass("{{pic.category}}")
             $('#level').text("LV:{{pic.level}}");
+            $('#judge').removeClass();
+            $('#judge').addClass("small-word")
             $('#judge').text("[{{pic.judge}}]");
+            $('#judge').addClass("{{pic.category}}_bottom")
             $('#effector').text(" Effector : {{pic.effector}}");
+            $('#comment').removeClass();
+            $('#comment').addClass("small-word")
             $('#comment').text("{{pic.comment}}");
+            $('#comment').addClass("{{pic.category}}_bottom")
         };
         // {% endfor %}
       }
