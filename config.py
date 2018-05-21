@@ -141,7 +141,7 @@ picturelist = [
         "name":"アズールレーン「VS夕立」",
 		"author":"Jimmy'z",
         "level":"18","judge":"壞滅",
-        "effector":"ユニコーンのお兄ちゃん2号♪",
+        "effector":"お兄ちゃん2号♪",
         "comment":"「ソロモンの悪夢、見せてやるぜ。」",
         "category":"final"
     }
