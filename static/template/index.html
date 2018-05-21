@@ -162,11 +162,15 @@
                         </div>
                         
                         <div class="col-8" style="margin-left : -20px;margin-top:3%;" >
-                            <h2 class="big-word" id="song_name" style="font-size: 2vw;text-shadow: 1px 1px rgb(0, 0, 0);"> </h2>
+                            <h2 class="big-word" id="song_name" style="font-size: 2vw;text-shadow: 1px 1px rgb(0, 0, 0);"></h2>
+                            <div id="faith_stamp" width="0px" style="margin-top:-5%;font-size:4vw;float:right;border:rgb(255, 141, 11) solid 2px; color:rgb(255, 141, 11); padding:2px;" >信<br>仰</div> 
+                            <div id="hope_stamp" width="0px" style="margin-top:-5%;font-size:4vw;float:right;border:rgb(63, 236, 63) solid 2px; color:rgb(63, 236, 63); padding:2px;" >希<br>望</div> 
+                            <div id="heaven_stamp" width="0px" style="margin-top:-5%;font-size:4vw;float:right;border:rgb(255, 66, 91) solid 2px; color:rgb(255, 66, 91); padding:2px;" >天<br>堂</div> 
+                            <div id="final_stamp" width="0px" style="margin-top:-5%;font-size:4vw;float:right;border:rgb(204, 93, 255) solid 2px; color:rgb(204, 93, 255); padding:2px;" >終<br>焉</div> 
                             <h2 class="big-word" id="author" style="font-size: 2vw;text-shadow: 1px 1px rgb(0, 0, 0);"> </h2>
                             <div class="up" style="display:inline-block;">
                                 <h6 class="small-word" id="level" style="display:inline-block;color:#ccc;" ></h6>
-                                <h6 class="small-word" id="judge"  style="display:inline-block"></h6>
+                                <h6 class="small-word" id="judge"  style="display:inline-block;margin-top:2px;"></h6>
                                 <br>
                                 <h6 class="small-word" id="effector"  style="display:inline-block;color:#ccc;"></h6>
                             </div>
@@ -195,6 +199,10 @@
 
 <script>
     function selectOnlyThis(id){
+        $('#faith_stamp').hide()
+        $('#hope_stamp').hide()
+        $('#heaven_stamp').hide()
+        $('#final_stamp').hide()
         $('#welcome').attr('style','display:none');
         $('#banner').attr('style','display:flex;width:100%;');
         var btns = document.getElementsByClassName("btn");
@@ -209,22 +217,23 @@
             $('#select_pic').attr("src","static/images/{{pic.file}}").attr("style","margin:10%;visibility:visible;");
             $('#song_name').removeClass();
             $('#song_name').text("{{pic.name}}");
-            $('#song_name').addClass("big-word")
-            $('#song_name').addClass("{{pic.category}}")
+            $('#song_name').addClass("big-word");
+            $('#song_name').addClass("{{pic.category}}");
             $('#author').removeClass();
             $('#author').text("{{pic.author}}");
-            $('#author').addClass("big-word")
-            $('#author').addClass("{{pic.category}}")
+            $('#author').addClass("big-word");
+            $('#author').addClass("{{pic.category}}");
             $('#level').text("LV:{{pic.level}}");
             $('#judge').removeClass();
-            $('#judge').addClass("small-word")
+            $('#judge').addClass("small-word");
             $('#judge').text("[{{pic.judge}}]");
-            $('#judge').addClass("{{pic.category}}_bottom")
+            $('#judge').addClass("{{pic.category}}_bottom");
             $('#effector').text(" Effector : {{pic.effector}}");
             $('#comment').removeClass();
-            $('#comment').addClass("small-word")
+            $('#comment').addClass("small-word");
             $('#comment').text("{{pic.comment}}");
-            $('#comment').addClass("{{pic.category}}_bottom")
+            $('#comment').addClass("{{pic.category}}_bottom");
+            $('#{{pic.category}}_stamp').show();
         };
         // {% endfor %}
       }
