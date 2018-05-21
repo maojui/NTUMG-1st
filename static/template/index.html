@@ -1,4 +1,3 @@
-<!doctype html>
 <html>
     <head>
         <meta charset="utf-8">
@@ -11,7 +10,7 @@
         <title>NTUMG - 1st</title>
     </head>
 
-    <body>
+    <body >
         <style>
             .bgimg{
                 background-image:url("static/images/bg.jpg");
@@ -27,6 +26,7 @@
                 background-color: #cccccc;
                 background-repeat: no-repeat;
                 background-position:center top;
+                align-content: center;
                 background-size: 100%
             }
             .pic-left{
@@ -96,53 +96,57 @@
             .hope{
                 color:green;
             }
+            @media(max-width:600px){
+                .out{
+                    display:none;
+                }
+            }
         </style>
-    <div class="container" style="align-content: center;">
-        <div class="row"><div class="col-sm-2"></div>
-        <div class="col-sm-8">
-            <div class="row">
-                <div class="banner" style="min-width:300px; min-height:100px; width:100%; display: inline-block">
-                    <div class="row">
-                            
-                        <div class="col-sm-4">
-                            <img id="select_pic" src="static/images/1-1.jpg" width="80%" style="margin:10%" />
-                        </div>
 
-                        <div class="col-sm-8" style="margin-left : -20px;margin-top:3%;">
-                            <p style="font-size: 1vw">Next Track :</p>
-                            <h2 id="song_name" style="font-size: 2.5vw">XDDDDDDDD </h2>
+    <div class="container" style="align-content:center;margin: auto;">
+        <div class="row" style="align-content:center;">
+            <div class="col-2 out" ></div>
+            <div class="col-8" >
+                <div class="row banner"  style="min-width:400px;">
+                    <div class="row" style="align-items: center;" >
+                        
+                        <div class="col-4" >
+                            <img id="select_pic" src="static/images/1-1.jpg" width="80%" style="margin:10%;visibility:hidden;"  />
+                        </div>
+                        
+                        <div class="col-8" style="margin-left : -20px;margin-top:3%;" >
+                            <p id="next_track" style="font-size: 1vw;visibility:hidden;">Next Track :</p>
+                            <h2 id="song_name" style="font-size: 2.5vw"> </h2>
                             <div style="display:inline-block">
-                                <h6 class="small-word" id="level" style="display:inline-block;">LV:18</h6>
-                                <h6 class="small-word" id="judge" style="display:inline-block;">[強力]</h6>
-                                <h6 class="small-word" id="effector" style="display:inline-block;">EFFector</h6>
+                                <h6 class="small-word" id="level" style="display:inline-block;"></h6>
+                                <h6 class="small-word" id="judge" style="display:inline-block;"></h6>
+                                <h6 class="small-word" id="effector" style="display:inline-block;"></h6>
                             </div>
-                            <h6 class="small-word" id="comment">comment</h6>
+                            <h6 class="small-word" id="comment"></h6>
                         </div>
-
+                        
+                    </div>
+                </div>
+                <div class="row" align="center" width="110%" >
+                    <div class="bgimg" width="100%" style="min-width:400px;">
+                        {% for pic in piclist %}
+                        {% if (loop.index)%4 == 1%}
+                        <img class="btn pic-left {{pic.category}}" id={{loop.index}} src="static/images/{{pic.file}}" alt="{{pic.name}}" width="21%" onclick="selectOnlyThis(this.id)"/>
+                        {% elif (loop.index)%4 == 0%}
+                        <img class="btn pic-right {{pic.category}}" id={{loop.index}} src="static/images/{{pic.file}}" alt="{{pic.name}}" width="21%" onclick="selectOnlyThis(this.id)"/>
+                        {% else %}
+                        <img class="btn pic {{pic.category}}" id={{loop.index}} src="static/images/{{pic.file}}" alt="{{pic.name}}" width="21%" onclick="selectOnlyThis(this.id)"/>
+                        {% endif %}
+                        {% endfor %}
                     </div>
                 </div>
             </div>
-            <div class="row">
-            <div class="bgimg" width="100%" style="min-width:400px;">
-                
-                {% for pic in piclist %}
-                    {% if (loop.index)%4 == 1%}
-                        <img class="btn pic-left {{pic.category}}" id={{loop.index}} src="static/images/{{pic.file}}" alt="{{pic.name}}" width="21%" onclick="selectOnlyThis(this.id)"/>
-                    {% elif (loop.index)%4 == 0%}
-                        <img class="btn pic-right {{pic.category}}" id={{loop.index}} src="static/images/{{pic.file}}" alt="{{pic.name}}" width="21%" onclick="selectOnlyThis(this.id)"/>
-                    {% else %}
-                        <img class="btn pic {{pic.category}}" id={{loop.index}} src="static/images/{{pic.file}}" alt="{{pic.name}}" width="21%" onclick="selectOnlyThis(this.id)"/>
-                    {% endif %}
-                {% endfor %}
-
-            </div>
-            </div>
-        
-        </div>
+            <div class="col-2 out" ></div>
         </div>
     </div>
 
-    <script>
+
+<script>
     function selectOnlyThis(id){
         var btns = document.getElementsByClassName("btn");
         Array.prototype.forEach.call(btns,function(btn){
@@ -152,11 +156,11 @@
         $('#'+id).addClass("btn-primary");
         // {% for pic in piclist %}
         if(id == {{loop.index}}){
-
-            $('#select_pic').attr("src","static/images/{{pic.file}}");
+            $('#next_track').attr("style","font-size: 1vw;visibility:visible;");
+            $('#select_pic').attr("src","static/images/{{pic.file}}").attr("style","margin:10%;visibility:visible;");
             $('#song_name').removeClass();
             $('#song_name').text("{{pic.name}}");
-            $('#song_name').addClass("{{pic.category}}");
+            $('#song_name').addClass("{{pic.category}}")
             $('#level').text("LV:{{pic.level}}");
             $('#judge').text("[{{pic.judge}}]");
             $('#effector').text(" Effector : {{pic.effector}}");
