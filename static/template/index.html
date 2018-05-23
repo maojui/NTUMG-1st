@@ -233,13 +233,20 @@
         </div>
         <div class="row" style="align-items:center;margin-top:20px;width:100%;height:60px;padding-bottom: 30px;min-width: 350px;">
             <div class="col-1" ></div>
-            <div class="col-9 download">
+            <div class="col-9 download" style="margin-top:10%">
                 <a class="btn-info" href="https://drive.google.com/drive/folders/1LLIMWxYFx-u0oA8ATxH-_fA7qDfQEvqo?usp=sharing" style="float:right;width: 100%;margin:auto;text-align: center;min-width: 350px;">Full Pack Download link</a>
+                <br>
+                <a class="btn-info" href="https://www.youtube.com/playlist?list=PLwJrNOya6mZhrMqUroToHtkXdHgHBhrEQ" style="float:right;width: 100%;margin:auto;text-align: center;min-width: 350px; margin-top:3%"> Youtube Playlist </a>
+                <div>
+                    <audio id="music_play" controls style="visibility: hidden;">
+                        <source  src="static/music/1.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
             </div>
             <div class="col-1" ></div>
         </div>
     </div>
-
 
 <script>
     function selectOnlyThis(id){
@@ -257,6 +264,10 @@
         $('#'+id).addClass("btn-primary");
         // {% for pic in piclist %}
         if(id == {{loop.index}}){
+            $('#music_play').attr("src","static/music/{{loop.index}}.mp3")
+            var audioEle = $("#music_play")[0];
+            audioEle.play();
+
             $('#next_track').attr("style","font-size: 1vw;visibility:visible;");
             $('#select_pic').attr("src","static/images/{{pic.file}}").attr("style","margin:10%;visibility:visible;");
             $('#song_name').removeClass();
